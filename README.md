@@ -39,8 +39,7 @@ X-API-Key: your_api_key_here
 ## 🌐 Base URL
 
 ```
-Development: http://localhost:5000
-Production:  http://your-server:port
+Production: https://teknikantarmuka.my.id
 ```
 
 ---
@@ -72,7 +71,7 @@ GET /api/uplinks/devices
 
 **cURL:**
 ```bash
-curl -X GET "http://localhost:5000/api/uplinks/devices" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/devices" \
   -H "X-API-Key: your_api_key_here"
 ```
 
@@ -92,7 +91,7 @@ curl -X GET "http://localhost:5000/api/uplinks/devices" \
 
 **JavaScript:**
 ```javascript
-const response = await fetch('http://localhost:5000/api/uplinks/devices', {
+const response = await fetch('https://teknikantarmuka.my.id/api/uplinks/devices', {
     headers: { 'X-API-Key': 'your_api_key_here' }
 });
 const devices = await response.json();
@@ -119,15 +118,15 @@ GET /api/uplinks/{dev_eui}?limit=50&offset=0
 **cURL:**
 ```bash
 # Basic
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371" \
   -H "X-API-Key: your_api_key_here"
 
 # With pagination
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371?limit=100&offset=0" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371?limit=100&offset=0" \
   -H "X-API-Key: your_api_key_here"
 
 # With time filter
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371?from=2024-01-01T00:00:00&to=2024-01-31T23:59:59" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371?from=2024-01-01T00:00:00&to=2024-01-31T23:59:59" \
   -H "X-API-Key: your_api_key_here"
 ```
 
@@ -157,7 +156,7 @@ curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371?from=2024-01-01T
 **JavaScript:**
 ```javascript
 async function getUplinks(devEUI, limit = 50, offset = 0) {
-    const url = `http://localhost:5000/api/uplinks/${devEUI}?limit=${limit}&offset=${offset}`;
+    const url = `https://teknikantarmuka.my.id/api/uplinks/${devEUI}?limit=${limit}&offset=${offset}`;
     const response = await fetch(url, {
         headers: { 'X-API-Key': 'your_api_key_here' }
     });
@@ -185,7 +184,7 @@ console.log(uplinks);
     <script>
         async function loadUplinks() {
             const devEUI = document.getElementById('devEUI').value;
-            const response = await fetch(`http://localhost:5000/api/uplinks/${devEUI}?limit=10`, {
+            const response = await fetch(`https://teknikantarmuka.my.id/api/uplinks/${devEUI}?limit=10`, {
                 headers: { 'X-API-Key': 'your_api_key_here' }
             });
             const data = await response.json();
@@ -207,14 +206,14 @@ GET /api/uplinks/{dev_eui}/latest
 
 **cURL:**
 ```bash
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371/latest" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371/latest" \
   -H "X-API-Key: your_api_key_here"
 ```
 
 **JavaScript:**
 ```javascript
 async function getLatestUplink(devEUI) {
-    const response = await fetch(`http://localhost:5000/api/uplinks/${devEUI}/latest`, {
+    const response = await fetch(`https://teknikantarmuka.my.id/api/uplinks/${devEUI}/latest`, {
         headers: { 'X-API-Key': 'your_api_key_here' }
     });
     return await response.json();
@@ -239,18 +238,18 @@ GET /api/uplinks/{dev_eui}/last10?n=10
 **cURL:**
 ```bash
 # Last 10 (default)
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371/last10" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371/last10" \
   -H "X-API-Key: your_api_key_here"
 
 # Last 25
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371/last10?n=25" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371/last10?n=25" \
   -H "X-API-Key: your_api_key_here"
 ```
 
 **JavaScript:**
 ```javascript
 async function getLastNUplinks(devEUI, n = 10) {
-    const response = await fetch(`http://localhost:5000/api/uplinks/${devEUI}/last10?n=${n}`, {
+    const response = await fetch(`https://teknikantarmuka.my.id/api/uplinks/${devEUI}/last10?n=${n}`, {
         headers: { 'X-API-Key': 'your_api_key_here' }
     });
     return await response.json();
@@ -272,14 +271,14 @@ GET /api/uplinks/{dev_eui}/full?limit=50&offset=0
 
 **cURL:**
 ```bash
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371/full?limit=10" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371/full?limit=10" \
   -H "X-API-Key: your_api_key_here"
 ```
 
 **JavaScript:**
 ```javascript
 async function getFullUplinks(devEUI, limit = 50) {
-    const response = await fetch(`http://localhost:5000/api/uplinks/${devEUI}/full?limit=${limit}`, {
+    const response = await fetch(`https://teknikantarmuka.my.id/api/uplinks/${devEUI}/full?limit=${limit}`, {
         headers: { 'X-API-Key': 'your_api_key_here' }
     });
     return await response.json();
@@ -297,7 +296,7 @@ GET /api/uplinks/{dev_eui}/latest/full
 
 **cURL:**
 ```bash
-curl -X GET "http://localhost:5000/api/uplinks/BE078DDB76F70371/latest/full" \
+curl -X GET "https://teknikantarmuka.my.id/api/uplinks/BE078DDB76F70371/latest/full" \
   -H "X-API-Key: your_api_key_here"
 ```
 
@@ -338,7 +337,7 @@ Content-Type: application/json
 
 **cURL - Send Hex:**
 ```bash
-curl -X POST "http://localhost:5000/api/downlink" \
+curl -X POST "https://teknikantarmuka.my.id/api/downlink" \
   -H "X-API-Key: your_api_key_here" \
   -H "Content-Type: application/json" \
   -d '{
@@ -352,7 +351,7 @@ curl -X POST "http://localhost:5000/api/downlink" \
 
 **cURL - Send Text:**
 ```bash
-curl -X POST "http://localhost:5000/api/downlink" \
+curl -X POST "https://teknikantarmuka.my.id/api/downlink" \
   -H "X-API-Key: your_api_key_here" \
   -H "Content-Type: application/json" \
   -d '{
@@ -381,7 +380,7 @@ curl -X POST "http://localhost:5000/api/downlink" \
 **JavaScript:**
 ```javascript
 async function sendDownlink(appName, devEUI, data_hex, fPort = 1, confirmed = false) {
-    const response = await fetch('http://localhost:5000/api/downlink', {
+    const response = await fetch('https://teknikantarmuka.my.id/api/downlink', {
         method: 'POST',
         headers: {
             'X-API-Key': 'your_api_key_here',
@@ -446,7 +445,7 @@ console.log('Downlink sent:', result);
                 data_hex: document.getElementById('dataHex').value
             };
             
-            const response = await fetch('http://localhost:5000/api/downlink', {
+            const response = await fetch('https://teknikantarmuka.my.id/api/downlink', {
                 method: 'POST',
                 headers: {
                     'X-API-Key': 'your_api_key_here',
@@ -579,7 +578,7 @@ async function fetchWithErrorHandling(url, options = {}) {
 
 // Penggunaan
 try {
-    const data = await fetchWithErrorHandling('http://localhost:5000/api/uplinks/devices', {
+    const data = await fetchWithErrorHandling('https://teknikantarmuka.my.id/api/uplinks/devices', {
         headers: { 'X-API-Key': 'your_api_key_here' }
     });
     console.log(data);
@@ -659,7 +658,7 @@ class LoRaWANAPI {
 // ==================== USAGE ====================
 
 // Initialize
-const api = new LoRaWANAPI('http://localhost:5000', 'your_api_key_here');
+const api = new LoRaWANAPI('https://teknikantarmuka.my.id', 'your_api_key_here');
 
 // Get all devices
 const devices = await api.getDevices();
